@@ -18,4 +18,8 @@ function runEnter() {
     var inputValue = inputElement.property("value")
 
     console.log(inputValue)
+
+    var filteredData = tableData.filter(alien => alien.datetime === inputValue);
+
+    console.log(filteredData);
 }
