@@ -13,13 +13,34 @@ form.on("submit", runEnter);
 function runEnter() {
     d3.event.preventDefault();
 
-    var inputElement = d3.select("#datetime");
+    var inputElementDate = d3.select("#datetime");
 
-    var inputValue = inputElement.property("value")
+    var inputValueDate = inputElementDate.property("value");
 
-    console.log(inputValue)
+    var inputElementCity = d3.select("#cityname");
 
-    var filteredData = tableData.filter(alien => alien.datetime === inputValue);
+    var inputValueCity = inputElementCity.property("value");
+
+    var inputElementState = d3.select("#statename");
+
+    var inputValueState = inputElementState.property("value");
+
+    var inputElementCountry = d3.select("#countryname");
+
+    var inputValueCountry = inputElementCountry.property("value");
+
+    var inputElementShape = d3.select("#shape");
+
+    var inputValueShape = inputElementShape.property("value");
+
+    console.log(inputValueDate);
+    console.log(inputValueCity);
+    console.log(inputValueState);
+    console.log(inputValueCountry);
+    console.log(inputValueShape);
+
+    var filteredData = tableData.filter(alien => alien.datetime === inputValueDate && 
+        alien.city === inputValueCity && alien.state === inputValueState && alien.country === inputValueCountry && alien.shape === inputValueShape);
 
     console.log(filteredData);
 
