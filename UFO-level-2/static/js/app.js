@@ -13,34 +13,41 @@ form.on("submit", runEnter);
 function runEnter() {
     d3.event.preventDefault();
 
-    var inputElementDate = d3.select("#datetime");
+    var inputDate = d3.select("#datetime").property("value");
 
-    var inputValueDate = inputElementDate.property("value");
+    var inputCity = d3.select("#cityname").property("value");
 
-    var inputElementCity = d3.select("#cityname");
+    var inputState = d3.select("#statename").property("value");
 
-    var inputValueCity = inputElementCity.property("value");
+    var inputCountry = d3.select("#countryname").property("value");
 
-    var inputElementState = d3.select("#statename");
+    var inputShape = d3.select("#shape").property("value");
 
-    var inputValueState = inputElementState.property("value");
 
-    var inputElementCountry = d3.select("#countryname");
+    console.log(inputDate);
+    console.log(inputCity);
+    console.log(inputState);
+    console.log(inputCountry);
+    console.log(inputShape);
 
-    var inputValueCountry = inputElementCountry.property("value");
+    var filteredData = tableData;
 
-    var inputElementShape = d3.select("#shape");
+    if (inputDate) {
+        filteredData = filteredData.filter(alien => alien.datetime === inputDate);
+    }
+    if (inputCity) {
+        filteredData = filteredData.filter(alien => alien.city === inputCity);
+    }
+    if (inputState) {
+        filteredData = filteredData.filter(alien => alien.state === inputState);
+    }
+    if (inputCountry) {
+        filteredData = filteredData.filter(alien => alien.country === inputCountry);
+    }
+    if (inputShape) {
+        filteredData = filteredData.filter(alien => alien.shape === inputShape);
+    }
 
-    var inputValueShape = inputElementShape.property("value");
-
-    console.log(inputValueDate);
-    console.log(inputValueCity);
-    console.log(inputValueState);
-    console.log(inputValueCountry);
-    console.log(inputValueShape);
-
-    var filteredData = tableData.filter(alien => alien.datetime === inputValueDate && 
-        alien.city === inputValueCity && alien.state === inputValueState && alien.country === inputValueCountry && alien.shape === inputValueShape);
 
     console.log(filteredData);
 
